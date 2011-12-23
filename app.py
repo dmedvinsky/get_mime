@@ -14,7 +14,7 @@ render = lambda x, y: '%s\n' % (x if x else y)
 usage = (lambda: 'Please do\n'
                  '    GET /extension\n'
                  'You may provide `?default=unknown` parameter for me to '
-                 'render it if I\'ve no idea what your extension is.')
+                 'render it if I\'ve no idea what your extension is.\n')
 
 
 @app.route('/')
