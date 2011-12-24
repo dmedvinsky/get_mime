@@ -16,6 +16,16 @@
       <header>
         <h1>MIME/type over HTTP</h1>
       </header>
+
+      <section class="query">
+        <h2>Query MIME type</h2>
+        <form action="{{ url_for('query') }}" method="POST">
+          <label for="id-extension">File extension:</label>
+          <input type="text" name="extension" id="id-extension" placeholder="html" value="{{ extension }}">
+          <button type="submit">Get MIME type</button>
+        </form>
+      </section>
+
       <div class="content">
         {% block content %}
         {% endblock %}

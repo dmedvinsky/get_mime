@@ -27,9 +27,18 @@ def render_appropriate(template, context, accept):
     return flask.render_template(template_name, **context)
 
 
-@app.route('/')
+@app.route('/', methods=['GET'])
 def home():
     return render_appropriate('home', {}, flask.request.accept_mimetypes)
+
+
+@app.route('/', methods=['POST'])
+def query():
+    extension = flask.request.form.get('extension')
+    if extension is not None:
+        return flask.redirect(flask.url_for('doit_baby', extension=extension))
+    else:
+        return flask.redirect(flask.url_for('home'))
 
 
 @app.route('/<extension>')
