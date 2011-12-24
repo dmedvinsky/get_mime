@@ -1,34 +1,48 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Usage</h2>
-<p>
-  Please do
-</p>
+<section class="usage">
+  <h2>Usage</h2>
+  <p>Please do</p>
+  <code>&nbsp;&nbsp;&nbsp;&nbsp;GET /extension</code>
+</section>
 
-<pre><code>
-    GET /extension
-</code></pre>
+<section class="options">
+  <h3>Options</h3>
 
-<h3>Options</h3>
+  <p>
+    You may provide <code>?default=unknown</code> parameter for me
+    to render it if I've no idea what your extension is.
+  </p>
 
-<p>
-  You may provide <code>?default=unknown</code> parameter for me
-  to render it if I've no idea what your extension is.
-</p>
+  <p>
+    You may provide <code>Accept: mime/type</code> header to choose renderer:
+  </p>
+  <ul>
+    <li><kbd>text/plain</kbd></li>
+    <li><kbd>text/html</kbd></li>
+    <li><kbd>application/json</kbd></li>
+  </ul>
+</section>
 
-<p>
-  You may provide <code>Accept: mime/type</code> header to choose renderer:
-</p>
-<ul>
-  <li><kbd>text/plain</kbd></li>
-  <li><kbd>text/html</kbd></li>
-  <li><kbd>application/json</kbd></li>
-</ul>
-
-<h3>Example</h3>
-<pre><code>
-    $ curl $HOST/txt?default=no-match -H 'Accept: text/plain'
-    text/plain
-</code></pre>
+<section class="examples">
+  <h3>Examples</h3>
+  <ul>
+    <li>
+      <code>
+        $ curl $HOST/txt -H 'Accept: application/json'<br />
+        {"extension": "txt", "mime": "text/plain"}
+      </code>
+    </li>
+    <li>
+      <code>
+        $ curl $HOST/42?default=no-match -H 'Accept: text/plain'<br />
+        no-match
+      </code>
+    </li>
+    <li>
+      <a href="/html">Live HTML example</a>
+    </li>
+  </ul>
+</section>
 {% endblock %}
