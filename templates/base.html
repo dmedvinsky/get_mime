@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>MIME type</title>
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    {% block body %}
+      <header>
+        <h1>MIME/type over HTTP</h1>
+      </header>
+      <section class="content">
+        {% block content %}
+        {% endblock %}
+      </section>
+    {% endblock %}
+  </body>
+</html>

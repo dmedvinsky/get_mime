@@ -1,0 +1,18 @@
+Please do
+
+    GET /extension
+
+You may provide `?default=unknown` parameter for me
+to render it if I've no idea what your extension is.
+
+You may provide `Accept: mime/type` header to choose renderer:
+    text/plain
+    text/html
+    application/json
+
+Examples
+    $ curl $HOST/txt -H 'Accept: application/json'
+    {"extension": "txt", "mime": "text/plain"}
+    $ curl $HOST/42?default=no-match -H 'Accept: text/plain'
+    no-match
+

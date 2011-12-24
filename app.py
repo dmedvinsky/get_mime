@@ -9,23 +9,36 @@ app = flask.Flask(__name__)
 fst = lambda (x, y): x
 get_mime_info = lambda x: mimetypes.guess_type('fake.%s' % x)
 get_mime = lambda x: fst(get_mime_info(x))
-render = lambda x, y: '%s\n' % (x if x else y)
 
-usage = (lambda: 'Please do\n'
-                 '    GET /extension\n'
-                 'You may provide `?default=unknown` parameter for me to '
-                 'render it if I\'ve no idea what your extension is.\n')
+
+def get_suffix(accept):
+    best = accept.best_match(['text/plain', 'text/html', 'application/json'])
+    if best == 'text/plain':
+        return 'txt'
+    if best == 'text/html':
+        return 'html'
+    else:
+        return 'json'
+
+
+def render_appropriate(template, context, accept):
+    suffix = get_suffix(accept)
+    template_name = '%s.%s' % (template, suffix)
+    return flask.render_template(template_name, **context)
 
 
 @app.route('/')
 def home():
-    return usage()
+    return render_appropriate('home', {}, flask.request.accept_mimetypes)
 
 
 @app.route('/<extension>')
 def doit_baby(extension):
+    render = lambda x, y: '%s' % (x if x else y)
     default = flask.request.args.get('default', 'unknown')
-    return render(get_mime(extension), default)
+    context = {'extension': extension,
+               'mime': render(get_mime(extension), default)}
+    return render_appropriate('mime', context, flask.request.accept_mimetypes)
 
 
 if __name__ == '__main__':

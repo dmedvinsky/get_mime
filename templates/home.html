@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Usage</h2>
+<p>
+  Please do
+</p>
+
+<pre><code>
+    GET /extension
+</code></pre>
+
+<h3>Options</h3>
+
+<p>
+  You may provide <code>?default=unknown</code> parameter for me
+  to render it if I've no idea what your extension is.
+</p>
+
+<p>
+  You may provide <code>Accept: mime/type</code> header to choose renderer:
+</p>
+<ul>
+  <li><kbd>text/plain</kbd></li>
+  <li><kbd>text/html</kbd></li>
+  <li><kbd>application/json</kbd></li>
+</ul>
+
+<h3>Example</h3>
+<pre><code>
+    $ curl $HOST/txt?default=no-match -H 'Accept: text/plain'
+    text/plain
+</code></pre>
+{% endblock %}
