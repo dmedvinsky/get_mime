@@ -1,0 +1,32 @@
+body {
+    background: #333 url(denim.png) repeat scroll 0 0;
+    font-family: 'Palatino Linotype', 'Palatino', serif;
+}
+
+h1, h2, h3, h4 {
+    font-family: sans-serif;
+}
+
+code, var, kbd {
+    font-family: 'Monofur', 'Inconsolata', 'Monaco', 'Consolas', monospace;
+}
+
+header {
+    width: 40em;
+    padding: 1em;
+    margin: 1em auto;
+    text-align: center;
+    border-radius: 15px;
+    background: -webkit-linear-gradient(top, #fff, #ccc);
+    background: -moz-linear-gradient(top, #fff, #ccc);
+    background: linear-gradient(top, #fff, #ccc);
+}
+
+.content {
+    width: 38em;
+    padding: 1em;
+    margin: 1em auto;
+    border-radius: 15px;
+    background: #eee;
+    box-shadow: 0 0 15px #000;
+}

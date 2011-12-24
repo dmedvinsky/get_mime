@@ -5,6 +5,8 @@ Site: https://github.com/dmedvinsky
 
 
 /* THANKS */
+Marco Slooten for the nice texture (http://subtlepatterns.com/?p=907)
+
 Heroku
 Github
 GNU/Linux Community
