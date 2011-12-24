@@ -1,0 +1,20 @@
+/* TEAM */
+Developer: Dmitry Medvinsky
+Twitter: @dmedvinsky
+Site: https://github.com/dmedvinsky
+
+
+/* THANKS */
+Heroku
+Github
+GNU/Linux Community
+Vim Community
+Git Community
+Python Community
+Flask Community
+
+
+/* SITE */
+Last update: Sun, Dec 25, 2011
+Standards: HTML5, CSS3
+Software: GNU/Linux, Vim, Git, Python, Flask
